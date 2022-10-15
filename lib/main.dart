@@ -1,9 +1,9 @@
-import 'package:abctechapp/pages/home_bind.dart';
-import 'package:abctechapp/pages/home_page.dart';
-import 'package:abctechapp/pages/order_bind.dart';
-import 'package:abctechapp/pages/order_page.dart';
-import 'package:abctechapp/provider/assist_provider.dart';
-import 'package:abctechapp/services/assist_service.dart';
+import 'package:abctechapp/home/pages/home_bind.dart';
+import 'package:abctechapp/home/pages/home_page.dart';
+import 'package:abctechapp/order/pages/order_bind.dart';
+import 'package:abctechapp/order/pages/order_page.dart';
+import 'package:abctechapp/assist/provider/assist_provider.dart';
+import 'package:abctechapp/assist/services/assist_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Abc Tech App',
+      title: 'APP De Serviços',
       theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.blueGrey,
           textTheme:
               const TextTheme(headline4: TextStyle(color: Colors.yellow))),
       getPages: [

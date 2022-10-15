@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:abctechapp/provider/assist_provider.dart' as _i3;
+import 'package:abctechapp/assist/provider/assist_provider.dart' as _i3;
 import 'package:get/get_connect.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 

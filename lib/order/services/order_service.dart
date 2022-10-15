@@ -1,6 +1,6 @@
-import 'package:abctechapp/model/order.dart';
-import 'package:abctechapp/model/order_created.dart';
-import 'package:abctechapp/provider/order_provider.dart';
+import 'package:abctechapp/order/model/order.dart';
+import 'package:abctechapp/order/model/order_created.dart';
+import 'package:abctechapp/order/provider/order_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

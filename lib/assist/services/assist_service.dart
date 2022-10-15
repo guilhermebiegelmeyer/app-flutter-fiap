@@ -1,5 +1,5 @@
-import 'package:abctechapp/model/assist.dart';
-import 'package:abctechapp/provider/assist_provider.dart';
+import 'package:abctechapp/assist/model/assist.dart';
+import 'package:abctechapp/assist/provider/assist_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,5 +1,5 @@
 import 'package:abctechapp/constants.dart';
-import 'package:abctechapp/model/order.dart';
+import 'package:abctechapp/order/model/order.dart';
 import 'package:get/get.dart';
 
 abstract class OrderProviderInterface {

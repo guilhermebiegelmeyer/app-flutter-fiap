@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import 'package:abctechapp/model/assist.dart';
-import 'package:abctechapp/model/order.dart';
-import 'package:abctechapp/model/order_created.dart';
-import 'package:abctechapp/model/order_location.dart';
+import 'package:abctechapp/assist/model/assist.dart';
+import 'package:abctechapp/order/model/order.dart';
+import 'package:abctechapp/order/model/order_created.dart';
+import 'package:abctechapp/order/model/order_location.dart';
 import 'package:abctechapp/services/geolocation_service.dart';
-import 'package:abctechapp/services/order_service.dart';
+import 'package:abctechapp/order/services/order_service.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';

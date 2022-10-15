@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:abctechapp/model/assist.dart';
-import 'package:abctechapp/provider/assist_provider.dart';
-import 'package:abctechapp/services/assist_service.dart';
+import 'package:abctechapp/assist/model/assist.dart';
+import 'package:abctechapp/assist/provider/assist_provider.dart';
+import 'package:abctechapp/assist/services/assist_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get_connect.dart';
 import 'package:mockito/annotations.dart';
