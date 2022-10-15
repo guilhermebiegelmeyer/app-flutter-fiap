@@ -10,8 +10,12 @@ class HomePage extends GetView<AssistController> {
     return ListView.builder(
         shrinkWrap: true,
         itemCount: assist.length,
-        itemBuilder: ((context, index) =>
-            ListTile(title: Text(assist[index].name))));
+        itemBuilder: ((context, index) => ListTile(
+              title: Text(assist[index].name),
+              selectedColor: Colors.red,
+              selected: controller.isSelected(index),
+              onTap: () => controller.selectAssist(index),
+            )));
   }
 
   @override
@@ -21,33 +25,35 @@ class HomePage extends GetView<AssistController> {
         title: const Text('Lista de serviços'),
       ),
       body: Container(
-        constraints: const BoxConstraints.expand(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              children: const [
-                Expanded(
-                    child: Text('Os serviços disponíveis são:',
-                        textAlign: TextAlign.center))
+          constraints: const BoxConstraints.expand(),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: const [
+                    Expanded(
+                        child: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              'Os serviços disponíveis são:',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            )))
+                  ],
+                ),
+                controller.obx(
+                  (state) => renderAssist(state ?? []),
+                  onError: (error) => Text(error.toString()),
+                  onEmpty: const Text("Nenhuma assistência disponível"),
+                )
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                    child: TextButton(
-                  onPressed: controller.getAssistList,
-                  child: const Text('Recaregar'),
-                ))
-              ],
-            ),
-            controller.obx(
-              (state) => renderAssist(state ?? []),
-              onError: (error) => Text(error.toString()),
-            )
-          ],
-        ),
-      ),
+          )),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => controller.finishSelectAssist(),
+          child: const Icon(Icons.done)),
     );
   }
 }

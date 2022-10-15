@@ -1,5 +1,5 @@
-import 'package:get/get_connect/connect.dart';
-import 'constants.dart';
+import 'package:abctechapp/constants.dart';
+import 'package:get/get_connect.dart';
 
 abstract class AssistProviderInterface {
   Future<Response> getAssists();
