@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:abctechapp/order/model/order.dart';
 import 'package:abctechapp/order/model/order_created.dart';
 import 'package:abctechapp/order/provider/order_provider.dart';
@@ -14,16 +17,20 @@ class OrderService extends GetxService implements OrderServiceInterface {
 
   @override
   Future<OrderCreated> createOrder(Order order) async {
-    Response response = await _orderProviderInterface.postOrder(order);
-    if (response.hasError) {
-      return Future.error(ErrorDescription("Erro na conexao"));
-    }
-
     try {
+      Response response = await _orderProviderInterface.postOrder(order);
+
+      if (response.hasError) {
+        final description = response.body['description'];
+
+        return Future.error(ErrorDescription(description));
+      }
+
       return Future.sync(() => OrderCreated(true, ""));
-    } catch (e) {
-      e.printError();
-      return Future.error(ErrorDescription("Erro não esperado"));
+
+    } catch (error) {
+        error.printError();
+        return Future.error(ErrorDescription("Erro não esperado"));
     }
   }
 }
