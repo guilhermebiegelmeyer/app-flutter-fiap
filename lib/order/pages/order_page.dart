@@ -88,7 +88,12 @@ class OrderPage extends GetView<OrderController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Ordem de serviço"),
+          title: const Text('Ordem de Serviço'),
+          leading: const IconButton(
+            icon: Icon(Icons.menu),
+            tooltip: 'Navigation menu',
+            onPressed: null,
+          )
         ),
         body: Container(
             constraints: const BoxConstraints.expand(),
