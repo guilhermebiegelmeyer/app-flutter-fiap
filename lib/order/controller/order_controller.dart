@@ -41,9 +41,14 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
     return selectedAssists.map((element) => element.id).toList();
   }
 
-  finishStartOrder() {
+  finishStartOrder(formContext) {
+    if (!(formKey.currentState!.validate())) {
+      return;
+    }
+
     switch (screenState.value) {
       case OrderState.creating:
+        // validar aqui????
         _geolocationService.getPosition().then((value) {
           var start = orderLocationFromPosition(value);
 
@@ -89,7 +94,7 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
     change(null, status: RxStatus.success());
   }
 
-  editAssists() {
+  editAssists(BuildContext context) {
     if (screenState.value != OrderState.creating) {
       return null;
     }

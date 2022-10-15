@@ -37,6 +37,12 @@ class OrderPage extends GetView<OrderController> {
               decoration:
                   const InputDecoration(labelText: "Código do prestador"),
               textAlign: TextAlign.center,
+              validator: (value) {
+                if (value == null || value.isEmpty || value == "") {
+                  return 'Por favor, digite o código';
+                }
+                return null;
+              },
             ),
             Row(children: [
               const Expanded(
@@ -51,14 +57,15 @@ class OrderPage extends GetView<OrderController> {
               Ink(
                   decoration: const ShapeDecoration(
                       shape: CircleBorder(), color: Colors.blueAccent),
+                  width: 40,
+                  height: 40,
                   child: IconButton(
                       icon: const Icon(
                         Icons.search,
                         color: Colors.white,
                       ),
-                      onPressed: () => controller.editAssists()),
-                  width: 40,
-                  height: 40)
+                      onPressed: () => controller.editAssists(context)
+                  ))
             ]),
             Obx(
               () => renderAssists(controller.selectedAssists),
@@ -66,7 +73,7 @@ class OrderPage extends GetView<OrderController> {
             Row(children: [
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () => controller.finishStartOrder(),
+                      onPressed: () => controller.finishStartOrder(context),
                       child: Obx(
                         () {
                           if (controller.screenState.value ==
