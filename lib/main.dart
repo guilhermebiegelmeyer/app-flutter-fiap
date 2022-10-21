@@ -2,6 +2,7 @@ import 'package:abctechapp/assist/pages/assist_bind.dart';
 import 'package:abctechapp/assist/pages/assist_page.dart';
 import 'package:abctechapp/order/pages/order_bind.dart';
 import 'package:abctechapp/order/pages/order_page.dart';
+import 'package:abctechapp/home/pages/home_page.dart';
 import 'package:abctechapp/assist/provider/assist_provider.dart';
 import 'package:abctechapp/assist/services/assist_service.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +26,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'APP De Serviços',
       theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
-          textTheme:
-              const TextTheme(headline4: TextStyle(color: Colors.yellow))),
+        primarySwatch: Colors.deepPurple,
+        textTheme: const TextTheme(headline4: TextStyle(color: Color(0xff764abc)))
+      ),
       getPages: [
-        GetPage(name: "/", page: () => const OrderPage(), binding: OrderBind()),
+        GetPage(name: "/", page: () => const HomePage()),
+        GetPage(name: "/order", page: () => const OrderPage(), binding: OrderBind()),
         GetPage(
             name: "/assists", page: () => const AssistPage(), binding: AssistBind())
       ],

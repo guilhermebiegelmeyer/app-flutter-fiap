@@ -3,6 +3,7 @@ import 'package:abctechapp/assist/model/assist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:abctechapp/home/pages/bar_page.dart';
 
 class OrderPage extends GetView<OrderController> {
   const OrderPage({Key? key}) : super(key: key);
@@ -95,13 +96,13 @@ class OrderPage extends GetView<OrderController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Ordem de Serviço'),
-          leading: const IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-            onPressed: null,
-          )
+          centerTitle: true,
+          title: const Text(
+            'Serviços',
+          ),
+          backgroundColor: const Color(0xff764abc),
         ),
+        drawer: const MyDrawer(),
         body: Container(
             constraints: const BoxConstraints.expand(),
             padding: const EdgeInsets.all(10.0),
